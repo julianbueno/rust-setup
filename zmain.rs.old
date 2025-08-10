@@ -1,0 +1,41 @@
+struct Person {
+    first_name: String,
+    last_name: String,
+    email: String,
+    phone_number: String,
+    age: u8,
+}
+
+impl Person {
+    fn new(first_name: String, last_name: String, email: String, phone_number: String, age: u8) -> Self {
+        Self {
+            first_name,
+            last_name,
+            email,
+            phone_number,
+            age,
+        
+        }
+    }
+     fn full_name(&self) -> String { // Specify that it returns a String
+        format!("{} {}", self.first_name, self.last_name)
+        // Or using concatenation:
+        // self.first_name.clone() + " " + &self.last_name
+    }
+}
+
+fn main() {
+    let new_person = Person::new(
+        String::from("Julian"),
+        String::from("Bueno"),
+        String::from("julian@yes.com"),
+        String::from("1234567890"),
+        30
+    );
+    println!("Hello, {}!", new_person.first_name);
+    println!("Your last name is: {}", new_person.last_name);
+    println!("Your email is: {}", new_person.email);
+    println!("Your phone number is: {}", new_person.phone_number);
+    println!("Your age is: {}", new_person.age);
+    println!("Your full name is: {}", new_person.full_name());
+}
